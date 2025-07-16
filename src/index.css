@@ -1,0 +1,213 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Caffinity Design System - Coffee Shop Color Palette */
+
+@layer base {
+  :root {
+    /* Light Mode - Light Roast */
+    --background: 0 0% 96.1%; /* #F5F5F5 */
+    --foreground: 23 100% 7.1%; /* #3F2305 */
+
+    --card: 40 30% 90.2%; /* #F2EAD3 */
+    --card-foreground: 23 100% 7.1%;
+
+    --popover: 0 0% 96.1%;
+    --popover-foreground: 23 100% 7.1%;
+
+    --primary: 23 100% 7.1%; /* #3F2305 Coffee Brown */
+    --primary-foreground: 0 0% 96.1%;
+
+    --secondary: 40 23% 82.4%; /* #DFD7BF Mocha Tan */
+    --secondary-foreground: 23 100% 7.1%;
+
+    --muted: 40 30% 90.2%;
+    --muted-foreground: 23 60% 25%;
+
+    --accent: 40 23% 82.4%;
+    --accent-foreground: 23 100% 7.1%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 96.1%;
+
+    --border: 40 23% 82.4%;
+    --input: 40 23% 82.4%;
+    --ring: 23 100% 7.1%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 96.1%;
+    --sidebar-foreground: 23 100% 7.1%;
+    --sidebar-primary: 23 100% 7.1%;
+    --sidebar-primary-foreground: 0 0% 96.1%;
+    --sidebar-accent: 40 30% 90.2%;
+    --sidebar-accent-foreground: 23 100% 7.1%;
+    --sidebar-border: 40 23% 82.4%;
+    --sidebar-ring: 23 100% 7.1%;
+  }
+
+  .dark {
+    /* Dark Mode - Dark Roast */
+    --background: 23 100% 7.1%; /* #3F2305 */
+    --foreground: 0 0% 96.1%; /* #F5F5F5 */
+
+    --card: 23 80% 12%;
+    --card-foreground: 0 0% 96.1%;
+
+    --popover: 23 100% 7.1%;
+    --popover-foreground: 0 0% 96.1%;
+
+    --primary: 40 30% 90.2%; /* #F2EAD3 Light accent for dark mode */
+    --primary-foreground: 23 100% 7.1%;
+
+    --secondary: 23 60% 15%;
+    --secondary-foreground: 0 0% 96.1%;
+
+    --muted: 23 60% 15%;
+    --muted-foreground: 40 23% 70%;
+
+    --accent: 23 60% 15%;
+    --accent-foreground: 0 0% 96.1%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 96.1%;
+
+    --border: 23 60% 15%;
+    --input: 23 60% 15%;
+    --ring: 40 30% 90.2%;
+
+    --sidebar-background: 23 100% 7.1%;
+    --sidebar-foreground: 0 0% 96.1%;
+    --sidebar-primary: 40 30% 90.2%;
+    --sidebar-primary-foreground: 23 100% 7.1%;
+    --sidebar-accent: 23 60% 15%;
+    --sidebar-accent-foreground: 0 0% 96.1%;
+    --sidebar-border: 23 60% 15%;
+    --sidebar-ring: 40 30% 90.2%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .hover-glow {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 20px rgba(63, 35, 5, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.8);
+  }
+
+  /* Steam animation */
+  .steam-bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: steam 2s ease-out infinite;
+  }
+
+  .steam-bubble:nth-child(1) {
+    left: 20%;
+    animation-delay: 0s;
+    width: 4px;
+    height: 4px;
+  }
+
+  .steam-bubble:nth-child(2) {
+    left: 40%;
+    animation-delay: 0.5s;
+    width: 6px;
+    height: 6px;
+  }
+
+  .steam-bubble:nth-child(3) {
+    left: 60%;
+    animation-delay: 1s;
+    width: 4px;
+    height: 4px;
+  }
+
+  .steam-bubble:nth-child(4) {
+    left: 80%;
+    animation-delay: 1.5s;
+    width: 5px;
+    height: 5px;
+  }
+}
+
+/* Intersection Observer Animation Classes */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-on-scroll-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.6s ease-out;
+}
+
+.animate-on-scroll-scale.animate {
+  opacity: 1;
+  transform: scale(1);
+}
